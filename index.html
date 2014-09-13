@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>HTML Audio Seek from URL</title>
+    <style>
+      body {
+        background-color: #1e1e1d;
+        color: #f8f8f8;
+        font-family: helvetica, arial, sans-serif;
+        margin: 38vh auto;
+        text-align: center;
+        width: 93%;
+      }
+
+      a {
+        color: #ffad15;
+        display: inline-block;
+        margin-top: 2em;
+        text-decoration: none;
+
+        display: none;
+      }
+
+      input {
+        border: 0;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: 1em;
+        margin: 2em auto 0 auto;
+        max-width: 500px;
+        padding: 0.6em 0.6em;
+        width: 95%;
+      }
+
+      audio {
+        display: block;
+        margin: 0 auto;
+        max-width: 500px;
+        width: 95%
+      }
+    </style>
+  </head>
+  <body>
+    <audio src="http://f.cl.ly/items/0D2I0i1s0B3S2T2U0e3Z/jeff-rosenstock-teenager.mp3" id="media" preload="auto" controls>
+      <p>Durn, this browser doesn’t support the <code>audio</code> element with an mp3 source. I love you.</p>
+    </audio>
+
+    <input placeholder="Waiting for current time" type="url" value="" class="current-url">
+
+    <a href="">Blog post about this</a>
+    <script src="seek-from-url.js"></script>
+  </body>
+</html>
