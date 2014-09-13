@@ -3,7 +3,8 @@
 Seek to a specified time in an HTML media element–`audio`, `video`-using a URL
 query parameter. `http://example.com?t=1h32m24s`
 
-Also a modified version of the script for embedded Soundcloud players.
+Also a modified version of the script for embedded Soundcloud players that makes
+use of the Soundcloud [Widget API](https://developers.soundcloud.com/docs/api/html5-widget)
 
 ## Demos
 - [HTML](http://lab.tylergaw.com/media-seek-from-url)
