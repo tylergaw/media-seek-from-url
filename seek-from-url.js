@@ -1,4 +1,7 @@
 (function () {
+  seekIfNeeded();
+  displayTimeURL();
+
   // Checks the URL for the presence of a time "t=1h32m6s" query. If it exists attempts
   // to seek to the given time in the media.
   function seekIfNeeded () {
@@ -81,8 +84,6 @@
     return seconds;
   }
 
-  seekIfNeeded();
-
   // This isn't needed if you don't need to display the time string URL somewhere
   // on the page.
   function displayTimeURL () {
@@ -109,6 +110,4 @@
       }
     });
   }
-
-  displayTimeURL();
 }());
