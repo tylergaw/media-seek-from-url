@@ -1,67 +1,22 @@
 (function () {
-  function handlePodcastJump (e) {
-    e.preventDefault();
-    var target = $(e.currentTarget);
-    var container = target.parents('.podcast');
-    var url = target.attr('href');
-
-    var scIframe = container.find('.player iframe');
-
-    if (scIframe.length > 0) {
-      // Soundcloud
-      var widget = SC.Widget(scIframe[0]);
-      widget.getPosition(function (pos) {
-
-        if (pos > 0) {
-          // SC gives the position in milliseconds, we want seconds.
-          url += '?t=' + timeStringFromParts(timePartsFromSeconds(pos / 1000));
-        }
-
-        widget.pause();
-
-        window.open(url);
-      });
-    }
-    else {
-
-    }
-  }
-
   // Checks the URL for the presence of a time "t=1h32m6s" query. If it exists attempts
   // to seek to the given time in the media.
   function seekIfNeeded () {
     var q = window.location.search;
 
     if (q.indexOf('t=') > -1) {
-      var timeString = q.split('=')[1];
+      var timeString = q.split('=')[1],
+        media = document.getElementById('media'),
+        seekedFromURL = false;
 
+      media.addEventListener('canplay', function () {
+        if (!seekedFromURL) {
+          media.currentTime = secondsFromTimeParts(partsFromTimeString(timeString));
+          seekedFromURL = true;
+        }
+      });
 
-      var scIframe = document.querySelector('.podcast .player iframe');
-
-      if (scIframe && scIframe.length > 0) {
-        // Soundcloud
-        var widget = SC.Widget(scIframe[0]);
-        widget.bind(SC.Widget.Events.READY, function () {
-          widget.bind(SC.Widget.Events.PLAY, function () {
-            widget.seekTo(secondsFromTimeParts(partsFromTimeString(timeString)) * 1000);
-          });
-
-          widget.play();
-        });
-      }
-      else {
-        var media = document.getElementById('media');
-        var seekedFromURL = false;
-
-        media.addEventListener('canplay', function () {
-          if (!seekedFromURL) {
-            media.currentTime = secondsFromTimeParts(partsFromTimeString(timeString));
-            seekedFromURL = true;
-          }
-        });
-
-        media.play();
-      }
+      media.play();
     }
   }
 
