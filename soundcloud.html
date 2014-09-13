@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Soundcloud Embed Seek from URL</title>
+    <title>Soundcloud embed Seek from URL</title>
     <style>
       body {
         background-color: #1e1e1d;
         color: #f8f8f8;
         font-family: helvetica, arial, sans-serif;
-        margin: 38vh auto;
+        margin: 28vh auto;
         text-align: center;
         width: 93%;
       }
@@ -28,27 +28,19 @@
         box-sizing: border-box;
         font-size: 1em;
         margin: 2em auto 0 auto;
-        max-width: 500px;
+        max-width: 600px;
         padding: 0.6em 0.6em;
         width: 95%;
-      }
-
-      audio {
-        display: block;
-        margin: 0 auto;
-        max-width: 500px;
-        width: 95%
       }
     </style>
   </head>
   <body>
-    <audio src="http://f.cl.ly/items/0D2I0i1s0B3S2T2U0e3Z/jeff-rosenstock-teenager.mp3" id="media" preload="auto" controls>
-      <p>Durn, this browser doesn’t support the <code>audio</code> element with an mp3 source. I love you.</p>
-    </audio>
+    <iframe id="media" width="100%" height="166" scrolling="no" frameborder="no"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/94141319&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 
     <input placeholder="Waiting for current time" type="url" value="" class="current-url">
 
-    <a href="">Blog post about this</a>
-    <script src="seek-from-url.js"></script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <script src="soundcloud-seek-from-url.js"></script>
   </body>
 </html>
