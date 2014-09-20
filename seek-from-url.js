@@ -63,8 +63,8 @@
   //
   // NOTE: Ignores the floating part which would be milliseconds.
   function timePartsFromSeconds (seconds) {
-    var parts = {};
-    var secondsInt = Math.floor(seconds);
+    var parts = {},
+      secondsInt = Math.floor(seconds);
 
     parts.h = Math.floor((secondsInt / 3600) % 24);
     parts.m = Math.floor(secondsInt / 60);
